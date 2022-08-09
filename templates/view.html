@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+
+    <tr>
+        <th>TODO app</th>
+
+    </tr>
+
+        {% for r in data %}
+    <tr>
+        <td>
+            {{forloop.counter}}
+        </td>
+
+        <td>
+              {{r.data}}
+        </td>
+           <td>
+              <a href="{% url 'update' r.id %}" class="btn btn-warning">Update</a>
+               <form action="#" method="POST" class="d-inline-block"></form>
+                   <a href="{% url 'delete' r.id %}" class="btn btn-danger">Delete</a>
+                   <form action="#" method="POST" class="d-inline-block">
+               </form>
+           </td>
+
+    </tr>
+
+        {% endfor %}
+</table>
+
+{% endblock %}
+
+
+</body>
+</html>
